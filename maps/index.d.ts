@@ -13,7 +13,7 @@ export declare class Lighthouse {
     fileTheme: string;
     theme: string;
     constructor(options: LighthouseOptions);
-    getHTML(code: string): Promise<string>;
+    getHTML(code: string, lang?: string | null): Promise<string>;
     fillCodeBlocks(): Boolean;
 }
 export {};

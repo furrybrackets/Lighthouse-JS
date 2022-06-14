@@ -32,9 +32,9 @@ export class Lighthouse {
         this.theme = options.theme || 'material-palenight';
     };
 
-    async getHTML(code: string): Promise<string> {
+    async getHTML(code: string, lang?: string | null): Promise<string> {
         console.log({
-            lang: this.lang,
+            lang: lang ? lang : this.lang,
             lineNumbers: this.lineNumbers,
             api: this.api,
             fileTheme: this.fileTheme,
@@ -45,7 +45,7 @@ export class Lighthouse {
                 const { data } = await axios.post<HTMLReturnData>(
                     this.api,
                     {
-                        lang: this.lang,
+                        lang: lang ? lang : this.lang,
                         lineNumbers: this.lineNumbers,
                         api: this.api,
                         fileTheme: this.fileTheme,
@@ -63,7 +63,7 @@ export class Lighthouse {
                 const { data } = await axios.post<HTMLReturnData>(
                     this.api,
                     {
-                        lang: this.lang,
+                        lang: lang ? lang : this.lang,
                         lineNumbers: this.lineNumbers,
                         api: this.api,
                         fileTheme: this.fileTheme,
@@ -96,7 +96,8 @@ export class Lighthouse {
         console.log(codeBlocks);
         for (let i = 0; i<codeBlocks.length; i++) {
             let code = normalize(codeBlocks[i].innerHTML);
-            this.getHTML(code).then(res => {
+            let lang = codeBlocks[i].getAttribute('lang');
+            this.getHTML(code, lang).then(res => {
                 console.log(res);
                 codeBlocks[i].innerHTML = res;
             });
