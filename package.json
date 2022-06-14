@@ -1,0 +1,22 @@
+{
+  "name": "lighthousejs",
+  "version": "1.0.0",
+  "description": "Lighthouse CSS and JavaScript utilities.",
+  "main": "lighthouse.js",
+  "repository": "https://github.com/furrybrackets/Lighthouse-JS.git",
+  "author": "Peter Johnson <integral.sketch@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.27.2"
+  },
+  "scripts": {
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "ts-loader": "^9.3.0",
+    "typescript": "^4.7.3",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
